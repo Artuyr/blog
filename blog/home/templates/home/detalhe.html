@@ -1,0 +1,74 @@
+{% extends 'home/base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+<!--Usa a FK de Autor e Categoria em Post-->
+<p>Por <a href="{% url 'autor_post' post.author.id %}">{{ post.author.name }}</a> | Categoria: <a href="{% url 'categoria_post' post.category.slug %}">{{ post.category.name }}</a></p>
+
+<div>
+    {{ post.content|linebreaks }}
+</div>
+
+<!--Usa M2M de Post e Tag-->
+<p>Tags:
+{% for tag in post.tags.all %}
+    <a href="{% url 'tag_post' tag.slug %}" class="badge bg-secondary">{{ tag.name }}</a>
+{% empty %}
+    Nenhuma tag
+{% endfor %}
+</p>
+
+<!--Lista de Comentários-->
+<h3>Comentários</h3>
+<div class="mb-4">
+    {% for comentario in comentarios %}
+        <div class="card mb-2">
+            <div class="card-body">
+                <h6>{{ comentario.name }} <small class="text-muted">{{ comentario.created_at }}</small></h6>
+                <p>{{ comentario.content }}</p>
+            </div>
+        </div>
+        <!--Caso não tenha comentários-->
+    {% empty %}
+        <p>Nenhum comentário ainda.</p>
+    {% endfor %}
+</div>
+
+<!--Formulário de Comentário-->
+<h4>Deixe um comentário</h4>
+ <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Nome</label>
+            {{ form.name }}
+            {% if form.name.errors %}
+                <div class="text-danger">
+                    {{ form.name.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+                <div class="text-danger">
+                    {{ form.email.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Comentário</label>
+            {{ form.content }}
+            {% if form.content.errors %}
+                <div class="text-danger">
+                    {{ form.content.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">
+            Enviar comentário
+        </button>
+    </form>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Posts na Categoria: {{ category.name }}{% endblock %}
+
+{% block content %}
+<h1>Categoria: {{ category.name }}</h1>
+
+<!--Lista de Posts por Categoria-->
+<div class="row">
+    {% for post in posts %}
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.summary|default:post.content|truncatewords:30 }}</p>
+                <a href="{% url 'detalhe' post.slug %}" class="btn btn-primary">Ler mais</a>
+            </div>
+        </div>
+    </div>
+    <!--Se não tiver post-->
+    {% empty %}
+    <p>Nenhum post nesta categoria.</p>
+    {% endfor %}
+</div>
+
+<!--Navegação nas Páginas-->
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    {% if posts.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ posts.previous_page_number }}">Anterior</a>
+      </li>
+    {% endif %}
+    <li class="page-item disabled"><span class="page-link">Página {{ posts.number }} de {{ posts.paginator.num_pages }}</span></li>
+    {% if posts.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ posts.next_page_number }}">Próxima</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
+{% endblock %}

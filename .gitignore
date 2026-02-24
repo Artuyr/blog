@@ -1,0 +1,41 @@
+# Ambiente virtual
+venv/
+env/
+.venv/
+
+# Arquivos Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Banco de dados SQLite
+db.sqlite3
+
+# Arquivos de migração compilados
+*.sqlite3
+
+# Arquivos de ambiente
+.env
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de log
+*.log
+
+# Arquivos estáticos coletados
+staticfiles/
+
+# Media (se quiser ignorar uploads)
+media/
+
+# Cache
+.cache/
