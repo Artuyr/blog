@@ -18,24 +18,5 @@ db.sqlite3
 # Arquivos de ambiente
 .env
 
-# VSCode
-.vscode/
-
-# PyCharm
-.idea/
-
-# Arquivos do sistema
-.DS_Store
-Thumbs.db
-
-# Arquivos de log
-*.log
-
 # Arquivos estáticos coletados
 staticfiles/
-
-# Media (se quiser ignorar uploads)
-media/
-
-# Cache
-.cache/
