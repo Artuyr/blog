@@ -5,9 +5,6 @@ env/
 
 # Arquivos Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
 
 # Banco de dados SQLite
 db.sqlite3
