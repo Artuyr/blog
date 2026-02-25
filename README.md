@@ -53,6 +53,8 @@ Configuração local (modo manual):
     CREATE USER blog_user WITH ENCRYPTED PASSWORD 'sua_senha';
    
     GRANT ALL PRIVILEGES ON DATABASE blogdb TO blog_user;
+
+   \c blogdb
     
     GRANT ALL PRIVILEGES ON SCHEMA public TO blog_user;
     
