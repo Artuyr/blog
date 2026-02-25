@@ -93,4 +93,4 @@ Obs²:Para entrar em modo de produção: DEBUG=False
 
 10. Visualize o blog público:
 
-Acesse: http://127.0.0.1:8000
+    Acesse: http://127.0.0.1:8000
