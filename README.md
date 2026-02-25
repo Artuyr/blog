@@ -83,7 +83,14 @@ Obs²:Para entrar em modo de produção: DEBUG=False
     
     python manage.py runserver
 
-9. Acesse:
-    
-    Site público: http://127.0.0.1:8000/
-    Admin: http://127.0.0.1:8000/admin/
+9. Semeie os dados:
+
+   Acesse: http://127.0.0.1:8000/admin/
+
+   Faça Login com o superusuário criado anteriormente
+
+   Cadastre Autores, Categorias, Tags e Posts
+
+10. Visualize o blog público:
+
+Acesse: http://127.0.0.1:8000
