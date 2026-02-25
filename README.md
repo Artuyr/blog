@@ -53,6 +53,10 @@ Configuração local (modo manual):
     CREATE USER blog_user WITH ENCRYPTED PASSWORD 'sua_senha';
    
     GRANT ALL PRIVILEGES ON DATABASE blogdb TO blog_user;
+    
+    GRANT ALL PRIVILEGES ON SCHEMA public TO blog_user;
+    
+    ALTER SCHEMA public OWNER TO blog_user;
 
 5.Crie um arquivo .env com:
     
